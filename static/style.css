@@ -4,7 +4,9 @@
    ============================================ */
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -144,7 +146,7 @@ body {
 }
 
 .config-panel.open {
-    max-height: 200px;
+    max-height: 300px;
     padding: 16px 0;
     border-bottom-color: var(--border-color);
 }
@@ -155,9 +157,10 @@ body {
     gap: 16px;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
     .config-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 }
 
@@ -198,8 +201,10 @@ textarea:focus {
 }
 
 textarea {
-    resize: vertical;
+    resize: none;
     min-height: 100px;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* --- Cards --- */
@@ -498,6 +503,20 @@ textarea {
     min-height: 200px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    position: relative;
+}
+
+.report-actions {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    display: flex;
+    gap: 10px;
+}
+
+.report-actions .btn-secondary {
+    padding: 6px 14px;
+    font-size: 0.8rem;
 }
 
 /* Markdown rendered content styles */
@@ -527,7 +546,8 @@ textarea {
     line-height: 1.75;
 }
 
-.report-content ul, .report-content ol {
+.report-content ul,
+.report-content ol {
     margin: 8px 0;
     padding-left: 24px;
 }
@@ -584,6 +604,7 @@ textarea {
         opacity: 0;
         transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -591,8 +612,15 @@ textarea {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }
 
 .loading-pulse {
