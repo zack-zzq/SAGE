@@ -121,7 +121,6 @@ SAGE/
 │   ├── index.html
 │   ├── style.css
 │   └── app.js
-├── example/                # 示例文件
 ├── Dockerfile
 ├── docker-compose.yml
 └── pyproject.toml
